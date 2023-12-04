@@ -1,0 +1,127 @@
+body{
+    background: url(IMG/bg_-_mobile.jpg) no-repeat top center/cover;
+    margin: 0;
+}
+
+.cabecalho-inicial{
+    color: white;
+    background: transparent;
+    align-items: flex-start;
+    height: 100px;
+    width: 100%;
+    border: none;
+    font-family: "Inter", sans-serif;
+}
+
+#cab{
+    background-color: black;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+#tituloPagina{
+    color: crimson;
+    display: flex;
+    justify-content: center;
+}
+
+#logo{
+    height: 70px;
+    display: flex;
+    justify-content: left;
+    border-radius: 70px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body * {
+    font-family: "Inter", sans-serif;
+    size: 64px;
+    color: white;
+  }
+
+#cadastro{
+    color: black;
+    border-radius: 23px;
+    width: 251px;
+    height: 45px;
+}
+
+#login{
+    border: 0;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px;
+    
+}
+
+#login-texto{
+    width: 575px;
+    height: 54px;
+    border-radius: 32px;
+}
+
+#login-login{ 
+    background-color: #4870FF;
+    color: black;
+    width: 251px;
+    height: 45px;
+    border-radius: 23px;
+}
+
+#registro-login{
+    color: black;
+    border-radius: 23px;
+    width: 251px;
+    height: 45px;
+}
+
+#registrar{
+    background-color: #4870FF;
+    color: black;
+    width: 251px;
+    height: 45px;
+    border-radius: 23px;
+}
+
+#biblioteca{
+    background-color: black;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#configuracoes{
+    background-color: black;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#perfil{
+    background-color: black;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#jogo{
+    background-color: black;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
