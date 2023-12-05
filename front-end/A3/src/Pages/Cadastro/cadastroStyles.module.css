@@ -2,7 +2,7 @@
   background: url(../../../IMG/bg_-_mobile.jpg) no-repeat top center/cover;
   margin: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   align-items: center;

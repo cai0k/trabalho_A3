@@ -2,7 +2,7 @@
   background: url(../../../IMG/bg_-_mobile.jpg) no-repeat top center/cover;
   margin: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@
 .box form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -69,4 +69,8 @@ input {
   position: relative;
   top: 300px;
   left: 490px;
+}
+
+.btnExcluir{
+  background-color: red;
 }

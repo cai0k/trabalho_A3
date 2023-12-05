@@ -2,7 +2,7 @@
     background: url(../../../IMG/bg_-_mobile.jpg) no-repeat top center/cover;
     margin: 0;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 120px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,6 +40,10 @@
     height: 60px;
     line-height: 60px;
     border-radius: 4px;
+  }
+  .box p{
+    color: white;
+    margin-top: 30px;
   }
   
   .box button {

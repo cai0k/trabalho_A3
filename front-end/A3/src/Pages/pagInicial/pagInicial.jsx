@@ -39,8 +39,12 @@ function pagInicial() {
       <div className={styles.box}>
         {jogos.map((item) => (
           <div className={styles.cardJogo} key={item.id}>
-            <img src={item.image} alt="Slider" className={styles.slideItem} />
-            <h2>{item.id}</h2>
+            <img src={item.imagem} alt="Slider" className={styles.slideItem} />
+            <h2>Nome:{item.nome}</h2>
+            <h2>Preço:R${item.preco}</h2>
+            <h2>Categoria(s){item.categorias}</h2>
+            <h2>Data de lançamento{item.lancamento}</h2>
+            <h2>Nota:{item.nota}</h2>
           </div>
         ))}
       </div>

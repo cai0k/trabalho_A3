@@ -44,6 +44,7 @@ export async function Tablejogo(){
     })
   }
   
+
   export async function verificarJogo(req, res) {
     let nome = req.body.nome;
     try {

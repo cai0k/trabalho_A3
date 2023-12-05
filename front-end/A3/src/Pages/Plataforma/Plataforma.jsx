@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function Plataforma() {
   const [nome, setNome] = useState("");
   const [nota, setNota] = useState("");
+  const [error, setError] = useState("");
 
   const handlePlataforma = async (e) => {
     e.preventDefault();
@@ -38,11 +39,10 @@ function Plataforma() {
     }
   };
 
-  const handleExcluir = async (nome) => {
+  const handleExcluir = async (e) => {
     try {
       const response = await axios.delete(
-        "http://localhost:3000/deletarPlat",
-        JSON.stringify({ nome }),
+        `http://localhost:3000/deletarPlat?nome=${nome}`,
         {
           headers: { "Content-Type": "application/json" },
         }
@@ -50,6 +50,7 @@ function Plataforma() {
 
       if (response.status === 200) {
         console.log("Plataforma excluída com sucesso!");
+        // Adicione qualquer lógica adicional aqui após a exclusão bem-sucedida.
       } else {
         setError("Erro ao excluir a plataforma");
       }
@@ -81,14 +82,17 @@ function Plataforma() {
           <button type="submit" onClick={(e) => handlePlataforma(e)}>
             Confirmar
           </button>
+          <button
+            className={styles.btnExcluir}
+            type="button"
+            onClick={handleExcluir}>
+            Excluir
+          </button>
         </form>
       </div>
       <Link to="/pagInicial">
         <button className={styles.btnVoltar}>Voltar</button>
       </Link>
-      <button type="submit" onClick={(e) => handleExcluir(e)}>
-        Excluir
-      </button>
     </div>
   );
 }

@@ -44,7 +44,28 @@ function Jogo() {
     } catch (error) {
       console.error("Erro durante o cadastro do jogo:", error);
     }
-  };
+  }
+  const handleExcluir = async (e) => {
+    try {
+      const response = await axios.delete(
+        "http://localhost:3000/deletarJogo",
+        JSON.stringify({ nome }),
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+  
+      if (response.status === 200) {
+        console.log("Jogo excluído com sucesso!");
+        // Adicione qualquer lógica adicional aqui após a exclusão bem-sucedida.
+      } else {
+        setError("Erro ao excluir o jogo");
+      }
+    } catch (error) {
+      console.error("Erro durante a exclusão do jogo:", error);
+      setError("Erro ao excluir o jogo");
+    }
+  }; 
 
   return (
     <div className={styles.container}>
@@ -102,6 +123,12 @@ function Jogo() {
           />
           <button type="submit" onClick={(e) => handleJogo(e)}>
             Confirmar
+          </button>
+          <button
+            className={styles.btnExcluir}
+            type="button"
+            onClick={handleExcluir}>
+            Excluir
           </button>
         </form>
         <p>{error}</p>

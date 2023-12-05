@@ -49,7 +49,7 @@ export async function TablePlat(){
     let nome = req.body.nome;
     try {
     openDb().then(db=>{
-      db.get('SELECT * FROM Plataforma WHERE nome=?', [nome])
+      db.run('SELECT * FROM Plataforma WHERE nome=?', [nome])
       .then(plat=>{
         if (plat) {
           res.status(401).json({ msg: 'Plataforma ja existente'});
