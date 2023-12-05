@@ -15,12 +15,7 @@ function App() {
       <Route path="/pagInicial" element={<PagInicial />} />
       <Route path="/Jogo" element={<Jogo />} />
       <Route path="/Plataforma" element={<Plataforma />} />
-
     </Routes>
-    //   <>
-
-    //   <PagInicial/>
-    // </>
   );
 }
 
