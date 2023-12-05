@@ -15,6 +15,6 @@ router.post("/cadastrarPlat", InsertPlat);
 router.delete("/deletarPlat", deletePlat);
 router.put("/editarPlat", updatePlat);
 router.get("/selecionarPlat", selectPlat);
-router.post("/verificaPlat", verificaPlat);
+router.post("/verificarPlat", verificaPlat);
 
 export default router;

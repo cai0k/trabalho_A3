@@ -50,6 +50,7 @@ function Login() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
+          <div className={styles.butoes}>
           <button type="submit" onClick={(e) => handleLogin(e)}>
             Entrar
           </button>
@@ -58,6 +59,7 @@ function Login() {
               Cadastrar
             </button>
           </Link>
+          </div>
         </form>
         <p>{error}</p>
       </div>

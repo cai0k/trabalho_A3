@@ -9,7 +9,7 @@ export async function TablePlat(){
   export async function InsertPlat(req, res){
     let plat = req.body;
     openDb().then(db=>{
-      db.run('INSERT INTO Plataforma (nome, nota) VALUES (?, ?)',[plat.nome, plat.nota]);
+      db.run('INSERT INTO Plataforma (nota, nome) VALUES (?, ?)',[plat.nota, plat.nome]);
     })
     res.json({
       "statuscode": 200
@@ -19,7 +19,7 @@ export async function TablePlat(){
   export async function updatePlat(req, res){
     let plat = req.body;
     openDb().then(db=>{
-      db.run('UPDATE Plataforma SET nome=?, nota=? WHERE id=?',[plat.nome, plat.nota, plat.id]);
+      db.run('UPDATE Plataforma SET nome=?, nota=? WHERE id=?',[plat.nota, plat.nome, plat.id]);
     })
     res.json({
       "statuscode": 200
@@ -46,18 +46,14 @@ export async function TablePlat(){
   }
 
   export async function verificaPlat(req, res) {
+    let nome = req.body.nome;
     try {
-      let nome = req.body.nome;
-      if (!nome) {
-        return res.status(400).json({ error: 'Por favor, insira uma plataforma.' });
-      }
     openDb().then(db=>{
       db.get('SELECT * FROM Plataforma WHERE nome=?', [nome])
       .then(plat=>{
         if (plat) {
-          res.json({ existe: true });
+          res.status(401).json({ msg: 'Plataforma ja existente'});
         } else {
-          console.log('Plataforma ja existe')
           res.json({ existe: false });
         }
       }) 

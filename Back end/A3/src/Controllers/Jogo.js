@@ -2,14 +2,14 @@ import {openDb}  from "../../src/db/banco.js";
 
 export async function Tablejogo(){
     openDb().then(db=>{
-      db.exec('CREATE TABLE IF NOT EXISTS Jogo (id INTEGER PRIMARY KEY, plataforma TEXT, nota DECIMAL, preco DECIMAL, nome TEXT, categorias TEXT, lancamento DATE)')
+      db.exec('CREATE TABLE IF NOT EXISTS Jogo (id INTEGER PRIMARY KEY, plataforma TEXT, nota DECIMAL, imagem TEXT, preco DECIMAL, nome TEXT, categorias TEXT, lancamento DATE)')
     })
   }
   
   export async function InsertJogo(req, res){
     let jogo = req.body;
     openDb().then(db=>{
-      db.run('INSERT INTO Jogo (nome, plataforma, nota, categorias, preco, lancamento) VALUES (?, ?, ?, ?, ?, ?)',[jogo.nome, jogo.plataforma, jogo.nota, jogo.categorias, jogo.preco, jogo.lancamento]);
+      db.run('INSERT INTO Jogo (plataforma, nota, imagem, preco, nome, categorias, lancamento) VALUES (?, ?, ?, ?, ?, ?, ?)',[jogo.plataforma, jogo.nota, jogo.imagem, jogo.preco, jogo.nome, jogo.categorias, jogo.lancamento]);
     })
     res.json({
       "statuscode": 200
@@ -19,7 +19,7 @@ export async function Tablejogo(){
   export async function updateJogo(req, res){
     let jogo = req.body;
     openDb().then(db=>{
-      db.run('UPDATE Jogo SET nome=?, plataforma=?, nota=?, categorias=?, preco=? WHERE id=?',[jogo.nome, jogo.plataforma, jogo.nota, jogo.id, jogo.categorias, jogo.preco]);
+      db.run('UPDATE Jogo SET plataforma=?, nota=?, imagem=?, preco=?, nome=?, categorias=? lancamento=? WHERE id=?',[jogo.plataforma, jogo.nota, jogo.imagem, jogo.preco, jogo.nome, jogo.categorias, jogo.lancamento, jogo.id]);
     })
     res.json({
       "statuscode": 200
@@ -27,9 +27,8 @@ export async function Tablejogo(){
   }
   
   export async function selectJogo(req, res){
-    let nome = req.body.nome;
     openDb().then(db=>{
-      db.get('SELECT * FROM Jogo WHERE nome=?', [nome])
+      db.all('SELECT * FROM Jogo')
       .then(jogo=>res.json(jogo))
     });
   }
@@ -45,12 +44,9 @@ export async function Tablejogo(){
     })
   }
   
-  export async function verificaJogo(req, res) {
+  export async function verificarJogo(req, res) {
+    let nome = req.body.nome;
     try {
-      let nome = req.body.nome;
-      if (!nome) {
-        return res.status(400).json({ error: 'Por favor, insira o nome do jogo.' });
-      }
     openDb().then(db=>{
       db.get('SELECT * FROM Jogo WHERE nome=?', [nome])
       .then(jogo=>{
