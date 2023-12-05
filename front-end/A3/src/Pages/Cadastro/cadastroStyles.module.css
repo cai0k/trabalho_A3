@@ -1,17 +1,65 @@
-.container{
-    background: url(../../../IMG/bg_-_mobile.jpg) no-repeat top center/cover;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
+.container {
+  background: url(../../../IMG/bg_-_mobile.jpg) no-repeat top center/cover;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.titulo{
-    color: red;
+.titulo {
+  color: white;
 }
 
 .login-form {
-    padding: 0 60px;
+  padding: 0 60px;
+}
+.box{
+  max-width: 600px;
+  width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box p{
+  color: white;
+  margin-top: 30px;
+}
+
+.box form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.box button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4870FF;
+  border-radius: 21px;
+  width: 200px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: 15px;
+}
+.box input{
+  padding-left: 10px;
+}
+  input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 4px;
   }
-  
+
 /* .input {
     display: block;
     box-sizing: border-box;

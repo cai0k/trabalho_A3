@@ -2,7 +2,7 @@ import {openDb}  from "../../src/db/banco.js";
 
 export async function Tableuser(){
   openDb().then(db=>{
-    db.exec('CREATE TABLE IF NOT EXISTS Usuario (id INTEGER PRIMARY KEY, nome TEXT, email TEXT, senha TEXT)')
+    db.exec('CREATE TABLE IF NOT EXISTS Usuario (id INTEGER PRIMARY KEY, nome TEXT, email TEXT UNIQUE, senha TEXT)')
   })
 }
 
@@ -46,18 +46,15 @@ export async function deleteUsuario(req, res){
 }
 
 export async function verificarEmail(req, res) {
+  let email = req.body.email;
   try {
-    let email = req.body.email;
-    if (!email) {
-      return res.status(400).json({ error: 'Por favor, insira um email.' });
-    }
   openDb().then(db=>{
     db.get('SELECT * FROM Usuario WHERE email=?', [email])
     .then(usuario=>{
       if (usuario) {
-        res.json({ existe: true });
+        res.status(401).json({ msg: 'Email ja existente'});
       } else {
-        res.json({ existe: false });
+        res.json({ emailExistente: false });
       }
     }) 
   });
