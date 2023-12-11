@@ -45,19 +45,24 @@ function Jogo() {
       console.error("Erro durante o cadastro do jogo:", error);
     }
   }
-  const handleExcluir = async (e) => {
+  const handleExcluir = async () => {
     try {
+      if (!nome) {
+        console.log("Nenhum nome de jogo fornecido.");
+        return;
+      }
+  
       const response = await axios.delete(
-        "http://localhost:3000/deletarJogo",
-        JSON.stringify({ nome }),
+        `http://localhost:3000/deletarJogo`,
         {
           headers: { "Content-Type": "application/json" },
+          data: { nome: nome }
         }
       );
   
       if (response.status === 200) {
         console.log("Jogo excluído com sucesso!");
-        // Adicione qualquer lógica adicional aqui após a exclusão bem-sucedida.
+        window.location.href = "/pagInicial";
       } else {
         setError("Erro ao excluir o jogo");
       }
@@ -65,7 +70,7 @@ function Jogo() {
       console.error("Erro durante a exclusão do jogo:", error);
       setError("Erro ao excluir o jogo");
     }
-  }; 
+  };
 
   return (
     <div className={styles.container}>

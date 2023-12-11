@@ -27,6 +27,23 @@ export async function Tablejogo(){
   }
   
   export async function selectJogo(req, res){
+    const nome = req.body.nome; 
+    try {
+      const db = await openDb();
+      const jogo = await db.get('SELECT * FROM Jogo WHERE nome=?', [nome]);
+  
+      if (jogo) {
+        res.json(jogo);
+      } else {
+        res.status(404).json({ error: 'Jogo não encontrado' });
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+      res.status(500).json({ error: 'Erro interno do servidor ao selecionar o jogo.' });
+    }
+  }
+
+  export async function selectImgJogo(req, res){
     openDb().then(db=>{
       db.all('SELECT * FROM Jogo')
       .then(jogo=>res.json(jogo))
@@ -64,3 +81,4 @@ export async function Tablejogo(){
     res.status(500).json({ error: 'Erro interno do servidor ao verificar o jogo.' });
   }
   } 
+

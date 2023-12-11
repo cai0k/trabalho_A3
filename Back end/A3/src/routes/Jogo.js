@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { InsertJogo, Tablejogo, selectJogo, updateJogo, deleteJogo, verificarJogo } from '../Controllers/Jogo.js';
+import { InsertJogo, Tablejogo, selectJogo, updateJogo, deleteJogo, verificarJogo, selectImgJogo } from '../Controllers/Jogo.js';
 
 const router = Router();
 
@@ -15,6 +15,7 @@ router.post("/cadastrarJogo", InsertJogo);
 router.delete("/deletarJogo", deleteJogo);
 router.put("/editarJogo", updateJogo);
 router.get("/selecionarJogo", selectJogo);
+router.get("/selecionarImgJogo", selectImgJogo);
 router.post("/verificarjogo", verificarJogo);
 
 export default router;

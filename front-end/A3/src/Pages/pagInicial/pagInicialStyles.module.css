@@ -15,7 +15,9 @@
 }
 
 .box h2{
-  font-size: 15px;
+  font-size: 20px;
+  color: white;
+  padding: 5px;   margin: 5px;   text-align: left
 }
 
 .box {
@@ -28,9 +30,16 @@
 }
 .box img {
   width: 200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .cardJogo {
   width: 30%;
+  padding: 20px;
+  margin: 20px;
+  text-align: left;
 }
 
 .btnPlat{

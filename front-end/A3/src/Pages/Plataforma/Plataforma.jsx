@@ -10,47 +10,60 @@ function Plataforma() {
 
   const handlePlataforma = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await axios.post(
+      const responseVerificar = await axios.post(
         "http://localhost:3000/verificarPlat",
         JSON.stringify({ nome }),
         {
           headers: { "Content-Type": "application/json" },
         }
       );
-
-      if (!error?.response) {
-        console.log("if");
-        const response = await axios.post(
+  
+      if (!responseVerificar.data.existe) {
+        console.log("Plataforma não existe, realizando o cadastro.");
+        const responseCadastrar = await axios.post(
           "http://localhost:3000/cadastrarPlat",
           JSON.stringify({ nome, nota }),
           {
             headers: { "Content-Type": "application/json" },
           }
         );
-        window.location.href = "/pagInicial";
+  
+        if (responseCadastrar.status === 200) {
+          console.log("Plataforma cadastrada com sucesso!");
+          window.location.href = "/pagInicial";
+        } else {
+          setError("Erro ao cadastrar a plataforma.");
+        }
       } else {
-        console.log("else");
+        console.log("Plataforma já existe.");
         setError("Plataforma já existe");
       }
     } catch (error) {
       console.error("Erro durante o cadastro da plataforma:", error);
+      setError("Erro durante o cadastro da plataforma");
     }
   };
 
-  const handleExcluir = async (e) => {
+  const handleExcluir = async () => {
     try {
+      if (!nome) {
+        console.log("Nenhum nome de plataforma fornecido.");
+        return;
+      }
+  
       const response = await axios.delete(
-        `http://localhost:3000/deletarPlat?nome=${nome}`,
+        `http://localhost:3000/deletarPlat`,
         {
           headers: { "Content-Type": "application/json" },
+          data: { nome: nome }
         }
       );
-
+  
       if (response.status === 200) {
         console.log("Plataforma excluída com sucesso!");
-        // Adicione qualquer lógica adicional aqui após a exclusão bem-sucedida.
+        window.location.href = "/pagInicial";
       } else {
         setError("Erro ao excluir a plataforma");
       }
