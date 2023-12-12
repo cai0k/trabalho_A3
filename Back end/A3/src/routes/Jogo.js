@@ -14,7 +14,7 @@ Tablejogo();
 router.post("/cadastrarJogo", InsertJogo);
 router.delete("/deletarJogo", deleteJogo);
 router.put("/editarJogo", updateJogo);
-router.get("/selecionarJogo", selectJogo);
+router.get("/selecionarJogo/:nome", selectJogo);
 router.get("/selecionarImgJogo", selectImgJogo);
 router.post("/verificarjogo", verificarJogo);
 

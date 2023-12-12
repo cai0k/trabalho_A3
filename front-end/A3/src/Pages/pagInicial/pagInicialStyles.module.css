@@ -1,12 +1,31 @@
 .container {
-  background: url(../../../IMG/bg_-_mobile.jpg) no-repeat top center/cover;
+  background: url(../../../IMG/bg_-_mobile.jpg) top center/cover;
+  background-repeat: repeat-y; 
   margin: 0;
   width: 100%;
-  height: calc(100vh - 120px);
+  /* height: calc(100vh - 120px); */
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
+.pesquisa div{
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  padding: 0 10px;
+}
+.pesquisa input{
+  padding-left: 15px;
+  border: none;
+  height: 35px;
+  border-radius: 15px;  
+}
+.pesquisa span{
+  cursor: pointer;
+}
+
 .box h1 {
   color: white;
   position: relative;
@@ -21,7 +40,7 @@
 }
 
 .box {
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
   display: flex;
   gap: 10px;
@@ -40,45 +59,4 @@
   padding: 20px;
   margin: 20px;
   text-align: left;
-}
-
-.btnPlat{
-  width: 200px;
-  height: 50px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  background-color: #4870FF;
-  border-radius: 21px;
-  justify-content: center;
-  bottom: 350px;
-  left: 50px;
-}
-
-.btnJogo{
-  width: 200px;
-  height: 50px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  background-color: #4870FF;
-  border-radius: 21px;
-  justify-content: center;
-  bottom: 350px;
-  left: 100px;
-}
-
-.btnSair {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #4870ff;
-  border-radius: 21px;
-  width: 90px;
-  height: 50px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  top: 350px;
-  left: 50px;
 }

@@ -5,4 +5,54 @@
     display: flex;
     padding-left: 50px;
     align-items: center;
+    justify-content: space-between;
 }
+.header div{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+  }
+.btn{
+    width: 150px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    background-color: #4870FF;
+    border-radius: 21px;
+}
+/* 
+.btnPlat{
+    position: relative;
+    justify-content: center;
+    bottom: 350px;
+    left: 50px;
+  }
+  
+  .btnJogo{
+    width: 200px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    background-color: #4870FF;
+    border-radius: 21px;
+    justify-content: center;
+    bottom: 350px;
+    left: 100px;
+  }
+  
+  .btnSair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4870ff;
+    border-radius: 21px;
+    width: 90px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top: 350px;
+    left: 50px;
+  } */
+  

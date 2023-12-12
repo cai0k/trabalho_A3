@@ -27,7 +27,7 @@ export async function Tablejogo(){
   }
   
   export async function selectJogo(req, res){
-    const nome = req.body.nome; 
+    const nome = req.params.nome; 
     try {
       const db = await openDb();
       const jogo = await db.get('SELECT * FROM Jogo WHERE nome=?', [nome]);
